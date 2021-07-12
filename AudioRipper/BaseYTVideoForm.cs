@@ -174,7 +174,7 @@ namespace YTRipper
                 info_LayoutPanel.ColumnStyles[2].Width = 8;
             }
         }
-        private void close_Btn_Click(object sender, EventArgs e)
+        private void Close_Btn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 Application.Exit();
@@ -194,6 +194,10 @@ namespace YTRipper
         {
             throw new NotImplementedException("LoadInfoPressed() does not have implementation");
         }
+        //protected virtual void LoadOptions()
+        //{
+        //    throw new NotImplementedException("LoadOptions() does not have implementation");
+        //}
         protected virtual void NaviButtonClicked(Panel panel, Button button)
         {
             throw new NotImplementedException("HomeBtn() does not have implementation");
@@ -215,5 +219,11 @@ namespace YTRipper
         {
             throw new NotImplementedException("ProgressBarChange() does not have implementation");
         }
+
+        private void Rating_Label_TextChanged(object sender, EventArgs e)
+        {
+            //LoadOptions();
+        }
+
     }
 }

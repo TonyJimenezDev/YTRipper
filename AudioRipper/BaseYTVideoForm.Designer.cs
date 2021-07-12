@@ -49,13 +49,15 @@ namespace YTRipper
             this.welcome_Label = new System.Windows.Forms.Label();
             this.mux_Panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.audioSettings_CB = new System.Windows.Forms.ComboBox();
+            this.videoOptions_CB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.downloadInfo_Btn = new System.Windows.Forms.Button();
             this.download_Btn = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.info_LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.loading_Label = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@ namespace YTRipper
             this.home_Panel.SuspendLayout();
             this.mux_Panel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.info_LayoutPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -153,7 +156,7 @@ namespace YTRipper
             this.close_Btn.Size = new System.Drawing.Size(14, 14);
             this.close_Btn.TabIndex = 0;
             this.close_Btn.UseVisualStyleBackColor = false;
-            this.close_Btn.Click += new System.EventHandler(this.close_Btn_Click);
+            this.close_Btn.Click += new System.EventHandler(this.Close_Btn_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -358,9 +361,6 @@ namespace YTRipper
             // 
             this.mux_Panel.BackColor = System.Drawing.Color.DimGray;
             this.mux_Panel.Controls.Add(this.tableLayoutPanel2);
-            this.mux_Panel.Controls.Add(this.flowLayoutPanel1);
-            this.mux_Panel.Controls.Add(this.radioButton1);
-            this.mux_Panel.Controls.Add(this.comboBox1);
             this.mux_Panel.Controls.Add(this.info_LayoutPanel);
             this.mux_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mux_Panel.Location = new System.Drawing.Point(86, 41);
@@ -374,54 +374,82 @@ namespace YTRipper
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5042F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.4958F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.radioButton1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.radioButton2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 272);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 247);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(595, 100);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(595, 164);
             this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.Controls.Add(this.audioSettings_CB);
+            this.flowLayoutPanel2.Controls.Add(this.videoOptions_CB);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(124, 83);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(248, 27);
+            this.flowLayoutPanel2.TabIndex = 14;
+            // 
+            // audioSettings_CB
+            // 
+            this.audioSettings_CB.FormattingEnabled = true;
+            this.audioSettings_CB.Location = new System.Drawing.Point(3, 3);
+            this.audioSettings_CB.Name = "audioSettings_CB";
+            this.audioSettings_CB.Size = new System.Drawing.Size(115, 21);
+            this.audioSettings_CB.TabIndex = 11;
+            this.audioSettings_CB.Text = "Audio Format";
+            // 
+            // videoOptions_CB
+            // 
+            this.videoOptions_CB.DisplayMember = "Video Options";
+            this.videoOptions_CB.FormattingEnabled = true;
+            this.videoOptions_CB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.videoOptions_CB.Location = new System.Drawing.Point(124, 3);
+            this.videoOptions_CB.Name = "videoOptions_CB";
+            this.videoOptions_CB.Size = new System.Drawing.Size(121, 21);
+            this.videoOptions_CB.TabIndex = 10;
+            this.videoOptions_CB.Text = "Video Qaulity";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.BackColor = System.Drawing.Color.DimGray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(124, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(306, 13);
             this.textBox1.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 33);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(115, 21);
-            this.comboBox2.TabIndex = 11;
+            this.textBox1.Text = "Highest settings grabbed - 720p/30fps and highest bit quality.";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.downloadInfo_Btn);
             this.flowLayoutPanel1.Controls.Add(this.download_Btn);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 379);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 83);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 58);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // downloadInfo_Btn
             // 
-            this.downloadInfo_Btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.downloadInfo_Btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.downloadInfo_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.downloadInfo_Btn.Location = new System.Drawing.Point(3, 3);
             this.downloadInfo_Btn.Name = "downloadInfo_Btn";
-            this.downloadInfo_Btn.Size = new System.Drawing.Size(75, 23);
+            this.downloadInfo_Btn.Size = new System.Drawing.Size(96, 23);
             this.downloadInfo_Btn.TabIndex = 6;
             this.downloadInfo_Btn.Text = "Load";
             this.downloadInfo_Btn.UseVisualStyleBackColor = true;
@@ -429,11 +457,11 @@ namespace YTRipper
             // 
             // download_Btn
             // 
-            this.download_Btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.download_Btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.download_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.download_Btn.Location = new System.Drawing.Point(84, 3);
+            this.download_Btn.Location = new System.Drawing.Point(3, 32);
             this.download_Btn.Name = "download_Btn";
-            this.download_Btn.Size = new System.Drawing.Size(75, 23);
+            this.download_Btn.Size = new System.Drawing.Size(96, 23);
             this.download_Btn.TabIndex = 7;
             this.download_Btn.Text = "Download";
             this.download_Btn.UseVisualStyleBackColor = true;
@@ -441,22 +469,25 @@ namespace YTRipper
             // 
             // radioButton1
             // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(498, 382);
+            this.radioButton1.Location = new System.Drawing.Point(3, 3);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.Size = new System.Drawing.Size(93, 23);
             this.radioButton1.TabIndex = 12;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.Text = "Default Loadout";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // radioButton2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(218, 381);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(3, 43);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(99, 23);
+            this.radioButton2.TabIndex = 13;
+            this.radioButton2.Text = "Advance Options";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // info_LayoutPanel
             // 
@@ -476,7 +507,7 @@ namespace YTRipper
             this.info_LayoutPanel.RowCount = 2;
             this.info_LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.10526F));
             this.info_LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.894737F));
-            this.info_LayoutPanel.Size = new System.Drawing.Size(595, 272);
+            this.info_LayoutPanel.Size = new System.Drawing.Size(595, 247);
             this.info_LayoutPanel.TabIndex = 8;
             // 
             // flowLayoutPanel3
@@ -485,9 +516,9 @@ namespace YTRipper
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Controls.Add(this.loading_Label);
             this.flowLayoutPanel3.Controls.Add(this.progressBar);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 257);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 234);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(206, 12);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(206, 10);
             this.flowLayoutPanel3.TabIndex = 12;
             // 
             // loading_Label
@@ -522,7 +553,7 @@ namespace YTRipper
             this.info_RichTextBox.Name = "info_RichTextBox";
             this.info_RichTextBox.ReadOnly = true;
             this.info_RichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.info_RichTextBox.Size = new System.Drawing.Size(232, 181);
+            this.info_RichTextBox.Size = new System.Drawing.Size(232, 158);
             this.info_RichTextBox.TabIndex = 6;
             this.info_RichTextBox.Text = "Title:";
             // 
@@ -531,12 +562,12 @@ namespace YTRipper
             this.rating_Label.AutoSize = true;
             this.rating_Label.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rating_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.rating_Label.Location = new System.Drawing.Point(241, 254);
+            this.rating_Label.Location = new System.Drawing.Point(241, 231);
             this.rating_Label.Name = "rating_Label";
-            this.rating_Label.Size = new System.Drawing.Size(55, 12);
+            this.rating_Label.Size = new System.Drawing.Size(0, 12);
             this.rating_Label.TabIndex = 7;
-            this.rating_Label.Text = "Rating: 4.50";
             this.rating_Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rating_Label.TextChanged += new System.EventHandler(this.Rating_Label_TextChanged);
             // 
             // videoImg_PictureBox
             // 
@@ -544,7 +575,7 @@ namespace YTRipper
             this.videoImg_PictureBox.ImageLocation = "";
             this.videoImg_PictureBox.Location = new System.Drawing.Point(241, 53);
             this.videoImg_PictureBox.Name = "videoImg_PictureBox";
-            this.videoImg_PictureBox.Size = new System.Drawing.Size(291, 198);
+            this.videoImg_PictureBox.Size = new System.Drawing.Size(291, 175);
             this.videoImg_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.videoImg_PictureBox.TabIndex = 0;
             this.videoImg_PictureBox.TabStop = false;
@@ -656,9 +687,9 @@ namespace YTRipper
             this.home_Panel.ResumeLayout(false);
             this.home_Panel.PerformLayout();
             this.mux_Panel.ResumeLayout(false);
-            this.mux_Panel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.info_LayoutPanel.ResumeLayout(false);
             this.info_LayoutPanel.PerformLayout();
@@ -718,9 +749,11 @@ namespace YTRipper
         protected System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        protected System.Windows.Forms.ComboBox videoOptions_CB;
+        protected System.Windows.Forms.ComboBox audioSettings_CB;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
 

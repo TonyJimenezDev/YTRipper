@@ -31,19 +31,16 @@ namespace YTRipper
             loading_Label.Visible = true;
             progressBar.Visible = true;
             informationDownload.LoadingProgression = 25;
-            loading_Label.Text = "Loading:";
+            loading_Label.Text = "Loading..";
             info_RichTextBox.Text = await informationDownload.DefaultInfomation(httpsInput_TextBox.Text, videoImg_PictureBox);
             rating_Label.Text = informationDownload.Rating.ToString();
             // Add to a list/dropdown    informationDownload.GetVideoSettings(httpsInput_TextBox.Text);
-            informationDownload.GetVideoSettings(httpsInput_TextBox.Text);
-            informationDownload.GetAudioSettings(httpsInput_TextBox.Text);
-            
+            //bool isComplete = await informationDownload.GetVideoSettings(httpsInput_TextBox.Text);
+            LoadOptions(await informationDownload.GetVideoSettings(httpsInput_TextBox.Text), await informationDownload.GetAudioSettings(httpsInput_TextBox.Text));
+
         }
 
-        protected override void ProgressBarChange()
-        {
-            progressBar.Value = informationDownload.LoadingProgression;
-        }
+        protected override void ProgressBarChange() => progressBar.Value = informationDownload.LoadingProgression; // changes through loading label
 
         protected override void NaviButtonClicked(Panel panel, Button button)
         {
@@ -56,6 +53,26 @@ namespace YTRipper
             tmpPanel = panel;
         }
 
+        private void LoadOptions(bool isVidComplete, bool isAudComplete)
+        {
+            audioSettings_CB.Items.Clear();
+            videoOptions_CB.Items.Clear();
+            if(isVidComplete && isAudComplete)
+            {
+                foreach (var videoSetting in informationDownload.ListVideoQuality)
+                {
+                    if (videoSetting != null) videoOptions_CB.Items.Add(videoSetting);
+                }
+                informationDownload.LoadingProgression = 75;
+                loading_Label.Text = "Loading...";
+                foreach (var audioSettings in informationDownload.ListAudioStreamInfo)
+                {
+                    if (audioSettings != null) audioSettings_CB.Items.Add(audioSettings.ToString());
+                }
+                informationDownload.LoadingProgression = 100;
+                loading_Label.Text = "Complete";
+            }
 
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace YTRipper
             return infoRichText;
         }
 
-        public async void GetVideoSettings(string httpsInput)
+        public async ValueTask<bool> GetVideoSettings(string httpsInput)
         {
             Uri videoUri = new Uri(httpsInput);
             string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
@@ -58,7 +58,7 @@ namespace YTRipper
 
             //return listVideoQuality;
             // Return IEnumerable or a list - Check efficiency 
-
+            return true;
 
 
 
@@ -69,8 +69,9 @@ namespace YTRipper
             //var streamInfos = new IStreamInfo[] { audioStreamInfo, videoStreamInfo };
         }
 
-        public async void GetAudioSettings(string httpsInput)
+        public async ValueTask<bool> GetAudioSettings(string httpsInput)
         {
+
             Uri videoUri = new Uri(httpsInput);
             string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
 
@@ -82,8 +83,9 @@ namespace YTRipper
             ListAudioStreamInfo = new IStreamInfo[] { audioStreamMP4, audioStreamWebM, audioStreamTGPP };
             ////// ...or highest bitrate audio-only stream
             //IStreamInfo streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
+            
+            return true;
 
-            //return audioStreamInfo;
         }
     }
 }
