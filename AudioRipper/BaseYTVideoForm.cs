@@ -17,6 +17,7 @@ namespace YTRipper
         #region Button Events
         private void BaseYTVideoForm_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
             OnStartUp();
         }
 
@@ -93,6 +94,8 @@ namespace YTRipper
         private void DownloadBtn_Clicked(object sender, EventArgs e)
         {
             DownloadButtonPressed();
+            
+
 
             //Uri videoUri = new Uri(httpsInput_TextBox.Text);
             //string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
@@ -190,7 +193,7 @@ namespace YTRipper
         {
             throw new NotImplementedException("DownloadButtonPriessed() does not have implementation");
         }
-        protected async virtual void LoadInfoPressed()
+        protected virtual void LoadInfoPressed()
         {
             throw new NotImplementedException("LoadInfoPressed() does not have implementation");
         }

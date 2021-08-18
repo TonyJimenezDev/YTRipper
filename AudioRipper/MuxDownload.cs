@@ -14,8 +14,9 @@ using YoutubeExplode.Videos.Streams;
 
 namespace YTRipper
 {
-    class MuxDownload
+    class MuxDownload: BaseYTVideoForm
     {
+        static bool isDownloadComplete;
         public async void DefaultDownload(string httpsInput)
         {
             //httpsInput.Text = "Test from Child";
@@ -26,12 +27,26 @@ namespace YTRipper
             StreamManifest streamManifest = await BaseYTVideoForm.youtube.Videos.Streams.GetManifestAsync(videoID);
 
             //Get highest quality muxed stream
-            var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
-
+            IVideoStreamInfo streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
+            var progress = new Progress<double>();
+            progress.ProgressChanged += DownloadProgress;
             // Actual downloads file
-            await BaseYTVideoForm.youtube.Videos.Streams.DownloadAsync(streamInfo, $"D:\\video.{streamInfo.Container}");
+            await BaseYTVideoForm.youtube.Videos.Streams.DownloadAsync(streamInfo, $"D:\\video.{streamInfo.Container}", progress);
+            
         }
 
+        private void DownloadProgress(object sender, double e)
+        {
+            if (e.Equals(1))
+            {
+                loading_Label.Text = "Complete";
+            }
+        }
+
+        //private double DownloadProgress()
+        //{
+        //    return 0.0;
+        //}
         public async void MuxDownloadOptions(string httpsInput, IStreamInfo chosenAudioStreamInfo, string videoQaulity)
         {
 

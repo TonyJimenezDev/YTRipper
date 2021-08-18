@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -7,7 +8,6 @@ namespace YTRipper
     public partial class ChildYTVideoForm : BaseYTVideoForm
     {
 
-        MuxDownload muxDownload = new MuxDownload();
         InformationDownload informationDownload = new InformationDownload();
         Home home = new Home();
 
@@ -22,8 +22,20 @@ namespace YTRipper
         }
         protected override void DownloadButtonPressed()
         {
+            MuxDownload muxDownload = new MuxDownload();
+
+            informationDownload.LoadingProgression = 0;
+            loading_Label.Text = "Downloading..";
             //muxDownload.DefaultDownload(httpsInput_TextBox.Text);
-            muxDownload.MuxDownloadOptions(httpsInput_TextBox.Text, informationDownload.ListAudioStreamInfo[0], informationDownload.ListVideoQuality[0]);
+            if(defaultLoadout_RB.Checked)
+            {
+                muxDownload.DefaultDownload(httpsInput_TextBox.Text);
+                return;
+            }
+            int audioSettingsIndex = audioSettings_CB.SelectedIndex;
+            int videoSettingsIndex = videoOptions_CB.SelectedIndex;
+            muxDownload.MuxDownloadOptions(httpsInput_TextBox.Text, informationDownload.ListAudioStreamInfo[audioSettingsIndex], informationDownload.ListVideoQuality[videoSettingsIndex]);
+            
         }
 
         protected async override void LoadInfoPressed()
@@ -34,10 +46,9 @@ namespace YTRipper
             loading_Label.Text = "Loading..";
             info_RichTextBox.Text = await informationDownload.DefaultInfomation(httpsInput_TextBox.Text, videoImg_PictureBox);
             rating_Label.Text = informationDownload.Rating.ToString();
-            // Add to a list/dropdown    informationDownload.GetVideoSettings(httpsInput_TextBox.Text);
-            //bool isComplete = await informationDownload.GetVideoSettings(httpsInput_TextBox.Text);
+            informationDownload.LoadingProgression = 100;
             LoadOptions(await informationDownload.GetVideoSettings(httpsInput_TextBox.Text), await informationDownload.GetAudioSettings(httpsInput_TextBox.Text));
-
+            //.LoadingProgression = 100;
         }
 
         protected override void ProgressBarChange() => progressBar.Value = informationDownload.LoadingProgression; // changes through loading label
@@ -67,7 +78,7 @@ namespace YTRipper
                 loading_Label.Text = "Loading...";
                 foreach (var audioSettings in informationDownload.ListAudioStreamInfo)
                 {
-                    if (audioSettings != null) audioSettings_CB.Items.Add(audioSettings.ToString());
+                    if (audioSettings != null) audioSettings_CB.Items.Add(audioSettings.ToString()); ///// TODO: you should be able to grab this via Index. List we create will have the exact same index as the array we store in it
                 }
                 informationDownload.LoadingProgression = 100;
                 loading_Label.Text = "Complete";

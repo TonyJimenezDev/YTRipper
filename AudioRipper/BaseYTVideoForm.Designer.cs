@@ -49,15 +49,15 @@ namespace YTRipper
             this.welcome_Label = new System.Windows.Forms.Label();
             this.mux_Panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.advanceOptions_TextBox = new System.Windows.Forms.TextBox();
+            this.defaultLoadout_RB = new System.Windows.Forms.RadioButton();
+            this.advanceOption_RB = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.audioSettings_CB = new System.Windows.Forms.ComboBox();
             this.videoOptions_CB = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.downloadInfo_Btn = new System.Windows.Forms.Button();
             this.download_Btn = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.info_LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.loading_Label = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@ namespace YTRipper
             this.label2 = new System.Windows.Forms.Label();
             this.settings_Panel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.defaultLO_TextBox = new System.Windows.Forms.TextBox();
             this.topBar_Panel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip_LayoutPanel.SuspendLayout();
@@ -374,21 +375,55 @@ namespace YTRipper
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5042F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.4958F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.radioButton1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.radioButton2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.defaultLoadout_RB, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.advanceOption_RB, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.advanceOptions_TextBox, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.defaultLO_TextBox, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 247);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(595, 164);
             this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // advanceOptions_TextBox
+            // 
+            this.advanceOptions_TextBox.BackColor = System.Drawing.Color.DimGray;
+            this.advanceOptions_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.advanceOptions_TextBox.Location = new System.Drawing.Point(124, 99);
+            this.advanceOptions_TextBox.Name = "advanceOptions_TextBox";
+            this.advanceOptions_TextBox.ReadOnly = true;
+            this.advanceOptions_TextBox.Size = new System.Drawing.Size(306, 13);
+            this.advanceOptions_TextBox.TabIndex = 0;
+            this.advanceOptions_TextBox.Text = "Please select your settings from the drop down lists";
+            // 
+            // defaultLoadout_RB
+            // 
+            this.defaultLoadout_RB.Appearance = System.Windows.Forms.Appearance.Button;
+            this.defaultLoadout_RB.AutoSize = true;
+            this.defaultLoadout_RB.Location = new System.Drawing.Point(3, 67);
+            this.defaultLoadout_RB.Name = "defaultLoadout_RB";
+            this.defaultLoadout_RB.Size = new System.Drawing.Size(93, 23);
+            this.defaultLoadout_RB.TabIndex = 12;
+            this.defaultLoadout_RB.Text = "Default Loadout";
+            this.defaultLoadout_RB.UseVisualStyleBackColor = true;
+            // 
+            // advanceOption_RB
+            // 
+            this.advanceOption_RB.Appearance = System.Windows.Forms.Appearance.Button;
+            this.advanceOption_RB.AutoSize = true;
+            this.advanceOption_RB.Location = new System.Drawing.Point(3, 99);
+            this.advanceOption_RB.Name = "advanceOption_RB";
+            this.advanceOption_RB.Size = new System.Drawing.Size(99, 23);
+            this.advanceOption_RB.TabIndex = 13;
+            this.advanceOption_RB.Text = "Advance Options";
+            this.advanceOption_RB.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
             // 
@@ -396,7 +431,7 @@ namespace YTRipper
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.audioSettings_CB);
             this.flowLayoutPanel2.Controls.Add(this.videoOptions_CB);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(124, 83);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(124, 133);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(248, 27);
             this.flowLayoutPanel2.TabIndex = 14;
@@ -421,24 +456,13 @@ namespace YTRipper
             this.videoOptions_CB.TabIndex = 10;
             this.videoOptions_CB.Text = "Video Qaulity";
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(124, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(306, 13);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Highest settings grabbed - 720p/30fps and highest bit quality.";
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.downloadInfo_Btn);
             this.flowLayoutPanel1.Controls.Add(this.download_Btn);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 83);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 58);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -466,28 +490,6 @@ namespace YTRipper
             this.download_Btn.Text = "Download";
             this.download_Btn.UseVisualStyleBackColor = true;
             this.download_Btn.Click += new System.EventHandler(this.DownloadBtn_Clicked);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(93, 23);
-            this.radioButton1.TabIndex = 12;
-            this.radioButton1.Text = "Default Loadout";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(99, 23);
-            this.radioButton2.TabIndex = 13;
-            this.radioButton2.Text = "Advance Options";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // info_LayoutPanel
             // 
@@ -660,6 +662,17 @@ namespace YTRipper
             this.label3.TabIndex = 0;
             this.label3.Text = "Settings";
             // 
+            // defaultLO_TextBox
+            // 
+            this.defaultLO_TextBox.BackColor = System.Drawing.Color.DimGray;
+            this.defaultLO_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.defaultLO_TextBox.Location = new System.Drawing.Point(124, 67);
+            this.defaultLO_TextBox.Name = "defaultLO_TextBox";
+            this.defaultLO_TextBox.ReadOnly = true;
+            this.defaultLO_TextBox.Size = new System.Drawing.Size(306, 13);
+            this.defaultLO_TextBox.TabIndex = 15;
+            this.defaultLO_TextBox.Text = "Highest settings grabbed - 720p/30fps and highest bit quality.";
+            // 
             // BaseYTVideoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,12 +761,13 @@ namespace YTRipper
         protected System.Windows.Forms.Label loading_Label;
         protected System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox advanceOptions_TextBox;
         protected System.Windows.Forms.ComboBox videoOptions_CB;
         protected System.Windows.Forms.ComboBox audioSettings_CB;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.TextBox defaultLO_TextBox;
+        protected System.Windows.Forms.RadioButton defaultLoadout_RB;
+        protected System.Windows.Forms.RadioButton advanceOption_RB;
     }
 }
 
