@@ -220,7 +220,7 @@ namespace YTRipper
 
         protected virtual void ProgressBarChange()
         {
-            throw new NotImplementedException("ProgressBarChange() does not have implementation");
+            //loading_Label.Text = "Complete";
         }
 
         private void Rating_Label_TextChanged(object sender, EventArgs e)

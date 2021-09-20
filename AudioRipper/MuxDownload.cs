@@ -16,9 +16,12 @@ namespace YTRipper
 {
     class MuxDownload: BaseYTVideoForm
     {
+        InformationDownload informationDownload = new InformationDownload();
         static bool isDownloadComplete;
         public async void DefaultDownload(string httpsInput)
         {
+            informationDownload.LoadingProgression = 25;
+            loading_Label.Text = "Downloading...";
             //httpsInput.Text = "Test from Child";
             Uri videoUri = new Uri(httpsInput);
             string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
@@ -37,11 +40,13 @@ namespace YTRipper
 
         private void DownloadProgress(object sender, double e)
         {
-            if (e.Equals(1))
+            if (e >= 1)
             {
+                informationDownload.LoadingProgression = 100;
                 loading_Label.Text = "Complete";
             }
         }
+        //protected override void ProgressBarChange() => progressBar.Value = 100; // changes through loading label
 
         //private double DownloadProgress()
         //{

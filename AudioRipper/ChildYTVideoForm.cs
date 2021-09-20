@@ -31,11 +31,11 @@ namespace YTRipper
             {
                 muxDownload.DefaultDownload(httpsInput_TextBox.Text);
                 return;
-            }
+            }            
             int audioSettingsIndex = audioSettings_CB.SelectedIndex;
             int videoSettingsIndex = videoOptions_CB.SelectedIndex;
             muxDownload.MuxDownloadOptions(httpsInput_TextBox.Text, informationDownload.ListAudioStreamInfo[audioSettingsIndex], informationDownload.ListVideoQuality[videoSettingsIndex]);
-            
+
         }
 
         protected async override void LoadInfoPressed()
