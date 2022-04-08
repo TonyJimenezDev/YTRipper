@@ -25,16 +25,26 @@ namespace YTRipper
             MuxDownload muxDownload = new MuxDownload();
 
             informationDownload.LoadingProgression = 0;
-            loading_Label.Text = "Downloading..";
+            loading_Label.Text = "Download...";
             //muxDownload.DefaultDownload(httpsInput_TextBox.Text);
-            if(defaultLoadout_RB.Checked)
+            if (defaultLoadout_RB.Checked)
             {
+                informationDownload.LoadingProgression = 25;
+                loading_Label.Text = "Download...";
+
                 muxDownload.DefaultDownload(httpsInput_TextBox.Text);
+
+                informationDownload.LoadingProgression = 100;
+                //loading_Label.Text = "Downloading..";
+                // Figure out how to keep async running to collect video completion
                 return;
             }            
             int audioSettingsIndex = audioSettings_CB.SelectedIndex;
             int videoSettingsIndex = videoOptions_CB.SelectedIndex;
+
             muxDownload.MuxDownloadOptions(httpsInput_TextBox.Text, informationDownload.ListAudioStreamInfo[audioSettingsIndex], informationDownload.ListVideoQuality[videoSettingsIndex]);
+            //informationDownload.LoadingProgression = 100;
+            //loading_Label.Text = "Complete";
 
         }
 

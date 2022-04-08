@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,8 @@ namespace YTRipper
         static bool isDownloadComplete;
         public async void DefaultDownload(string httpsInput)
         {
-            informationDownload.LoadingProgression = 25;
-            loading_Label.Text = "Downloading...";
+            //Process[] process = Process.GetProcesses();
+
             //httpsInput.Text = "Test from Child";
             Uri videoUri = new Uri(httpsInput);
             string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
@@ -29,10 +30,12 @@ namespace YTRipper
             Video video = await BaseYTVideoForm.youtube.Videos.GetAsync(httpsInput);
             StreamManifest streamManifest = await BaseYTVideoForm.youtube.Videos.Streams.GetManifestAsync(videoID);
 
+
             //Get highest quality muxed stream
             IVideoStreamInfo streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
             var progress = new Progress<double>();
             progress.ProgressChanged += DownloadProgress;
+
             // Actual downloads file
             await BaseYTVideoForm.youtube.Videos.Streams.DownloadAsync(streamInfo, $"D:\\video.{streamInfo.Container}", progress);
             
@@ -40,7 +43,7 @@ namespace YTRipper
 
         private void DownloadProgress(object sender, double e)
         {
-            if (e >= 1)
+            if (e >= .9)
             {
                 informationDownload.LoadingProgression = 100;
                 loading_Label.Text = "Complete";
@@ -57,6 +60,7 @@ namespace YTRipper
 
             Uri videoUri = new Uri(httpsInput);
             string videoID = HttpUtility.ParseQueryString(videoUri.Query).Get("v");
+
 
 
             // Build presets of Converter

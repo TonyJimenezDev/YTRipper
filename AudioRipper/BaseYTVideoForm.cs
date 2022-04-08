@@ -94,7 +94,9 @@ namespace YTRipper
         private void DownloadBtn_Clicked(object sender, EventArgs e)
         {
             DownloadButtonPressed();
-            
+
+            // TODO: MAKE ANOTHER FUNCTION TO READ WHEN THE FILE IS FINISHED DOWNLOADING. 
+            ProgressBarChange();
 
 
             //Uri videoUri = new Uri(httpsInput_TextBox.Text);
@@ -220,7 +222,8 @@ namespace YTRipper
 
         protected virtual void ProgressBarChange()
         {
-            //loading_Label.Text = "Complete";
+            InformationDownload informationDownload = new InformationDownload();
+            progressBar.Value = informationDownload.LoadingProgression;
         }
 
         private void Rating_Label_TextChanged(object sender, EventArgs e)
